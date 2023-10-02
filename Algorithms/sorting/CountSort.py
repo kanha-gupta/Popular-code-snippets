@@ -1,4 +1,5 @@
 def count_sort(arr, beneath):
+    """Takes an array and beneath (all elements are between 0 and beneath) and sorts it"""
     n = len(arr)
     pos = [0] * (beneath + 1)
     for i in range(n):
@@ -50,3 +51,5 @@ count_sort(
     ],
     5,
 )
+
+# Output = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5]
