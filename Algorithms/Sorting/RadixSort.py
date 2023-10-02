@@ -7,6 +7,7 @@ def count_sort(arr, place):  # define counting sort
     for i in range(1, 10):
         pos[i] += pos[i - 1]
     for i in range(n - 1, -1, -1):
+        # This is necessary to make count_sort stable
         sorted_arr[pos[(arr[i] // place) % 10] - 1] = arr[i]
         pos[(arr[i] // place) % 10] -= 1
     return sorted_arr
