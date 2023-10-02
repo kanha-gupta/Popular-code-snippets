@@ -40,7 +40,8 @@
         //string
         $greeting = 'Hello, world!';
         // integer
-        $num = 12;
+        $a = 12;
+        $b = 3;
         // float , a float  is a number with a decimal point or a number in exponential form.
         $float = 1.25;
         // boolean , boolean only have 2 possible values : true or false
@@ -53,5 +54,82 @@
         $x = null;
 
     // Php operators
-    
+
+        // Addition (+)
+        $a + $b;
+        // Subtraction (-)
+        $a - $b;
+        // Multiplication (*)
+        $a * $b;
+        // Division (/)
+        $a / $b;
+        // Modulus (%)
+        $a % $b;
+        // Exponentiation (**)
+        $a ** $b;
+        // Assignment Operators (=)
+        $y = $a;
+
+    // Php conditional statements
+        if ($age >= 18) {
+            //this code below will be executed if the condition is true
+            echo 'You are an adult.'; 
+        } else {
+            //this code below will be executed if the condition is false
+            echo 'You are underage!';
+        }
+
+    // Php switch statement
+
+        // The switch statement is used to perform different actions based on different conditions.
+        $day = 'Monday';
+        switch ($day) {
+            case 'Monday':
+                echo 'Today is Monday!';
+                break;
+            case 'Tuesday':
+                echo 'Today is Tuesday!';
+                break;
+            case 'Wednesday':
+                echo 'Today is Wednesday!';
+                break;
+            case 'Thursday':
+                echo 'Today is Thursday!';
+                break;
+            case 'Friday':
+                echo 'Today is Friday!';
+                break;
+            case 'Saturday':
+                echo 'Today is Saturday!';
+                break;
+            case 'Sunday':
+                echo 'Today is Sunday!';
+                break;
+            default:
+            //  code to be executed if $day is different from all labels;
+            echo 'What day is that?';
+            
+        }
+
+    // Php loops
+        
+        // loop is used when you want to run a same code several times
+        for ($i=1; $i <= 5; $i++) { 
+            echo "The number is $i";
+        }
+
+    // Functions
+
+        // User defined function
+        function sayHello()  {
+            echo 'hello, world!'; //function output
+        }
+        sayHello(); //call the function
+
+        // function with parameter
+        function sayMyName($name) {
+            echo "hello, $name!"; 
+        }
+        sayMyName('John'); //send the value through argument
+
 ?>
