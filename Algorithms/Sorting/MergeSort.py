@@ -2,8 +2,9 @@ def merge_sort(arr, l, r):
     if l >= r:
         return arr
     mid = int((l + r) / 2)
-    arr = merge_sort(arr, l, mid)
+    arr = merge_sort(arr, l, mid)  # Solve the smaller problem
     arr = merge_sort(arr, mid + 1, r)
+    # Then try to merge the result
     i = l
     j = mid + 1
     k = 0
