@@ -20,3 +20,7 @@ def karatsuba(a, b):
     y = karatsuba(a2, b2)
     z = karatsuba((a1 + a2), (b1 + b2)) - x - y
     return x * (10 ** (2 * digitMax)) + z * (10**digitMax) + y
+
+
+print(karatsuba(12354, 65435))
+print(12354 * 65435)
