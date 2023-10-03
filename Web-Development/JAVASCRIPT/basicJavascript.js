@@ -104,6 +104,7 @@ $(".anchor").on("click", function() {
   let anchorTo = $(this).attr("href");
   //Calculation of the spacing necessary for the object with ID to appear correctly
   let offset = ($(window).width() < 960) ? 200 : 100;
+  
   //Makes the animation following the calculation for the object that contains the ID with the same href value
   $("html,body").animate({ scrollTop: $(anchorTo).offset().top - offset}, "slow");
-});
+}); 
