@@ -97,3 +97,10 @@ try {
 } catch (error) {
   console.error(error.message);
 }
+
+//Copy to clipboard using class 'anchor'
+$(".anchor").on("click", function() {
+  var anchorTo = $(this).attr("href");
+  let offset = ($(window).width() < 960) ? 200 : 100;
+  $("html,body").animate({ scrollTop: $(anchorTo).offset().top - offset}, "slow");
+});
