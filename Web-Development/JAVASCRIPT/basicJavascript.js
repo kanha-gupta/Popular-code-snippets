@@ -99,7 +99,7 @@ try {
 }
 
 //Setting a cookie by click using jquery
-$("#elementYouToClick").click(function () {
+$("#elementToClick").click(function () {
   Cookies.set( 'nameOfYourCookie', true, { expires: 31 });
 });
 
