@@ -98,7 +98,7 @@ try {
   console.error(error.message);
 }
 
-//Setting a cookie buy click using jquery
+//Setting a cookie by click using jquery
 $("#elementYouToClick").click(function () {
   Cookies.set( 'nameOfYourCookie', true, { expires: 31 });
 });
