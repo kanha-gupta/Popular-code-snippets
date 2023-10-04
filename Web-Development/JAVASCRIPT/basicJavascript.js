@@ -97,3 +97,14 @@ try {
 } catch (error) {
   console.error(error.message);
 }
+
+//Setting a cookie buy click using jquery
+$("#elementYouToClick").click(function () {
+  Cookies.set( 'nameOfYourCookie', true, { expires: 31 });
+});
+
+//Get the cookie and do some action
+if (Cookies.get('nameOfYourCookie') ) {
+  $('#elementToShow').removeClass('hide');
+  $('#elementToHide').addClass('hide');
+}
