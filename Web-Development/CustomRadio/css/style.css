@@ -1,0 +1,40 @@
+.gfield-choice-input {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    color: #98aab9;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #98aab9;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    float: left;
+    margin-right: 10px;
+}
+.gfield-choice-input::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: #02bcd5;
+}
+.gfield-choice-input:checked::before {
+    transform: scale(1);
+}
+.gfield-choice-input:focus {
+    outline: 2px solid rgba(2, 188, 213, 0.5);
+    outline-offset: 2px;
+}
+
+.gchoice {
+    margin-right: 24px;
+}
+
+.gfield_radio {
+    display: flex;
+}
