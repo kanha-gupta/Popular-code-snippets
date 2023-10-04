@@ -27,5 +27,4 @@ app.post("/rr", validateToken, async (req, res) => {
 //Route for delete method
 app.delete("/rr", validateToken, async (req, res) => {
     //Code to put some data
-});
-
+}); 

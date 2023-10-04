@@ -27,7 +27,7 @@ const productSchema = new Schema({
         feature3: String,
     },
     discount: String,
-    imageURL: String,
+    imageURL: String, 
 });
 
 //To create a model from the schema
