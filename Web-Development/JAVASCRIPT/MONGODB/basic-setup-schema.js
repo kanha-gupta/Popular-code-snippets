@@ -31,4 +31,4 @@ const productSchema = new Schema({
 });
 
 //To create a model from the schema
-const products = model("product", productSchema);
+const products = model("product", productSchema); 
