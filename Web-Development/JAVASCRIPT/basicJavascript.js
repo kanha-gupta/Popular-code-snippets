@@ -108,3 +108,14 @@ $(".anchor").on("click", function() {
   //Makes the animation following the calculation for the object that contains the ID with the same href value
   $("html,body").animate({ scrollTop: $(anchorTo).offset().top - offset}, "slow");
 }); 
+
+//Setting a cookie by click using jquery
+$("#elementToClick").click(function () {
+  Cookies.set( 'nameOfYourCookie', true, { expires: 31 });
+});
+
+//Get the cookie and do some action
+if (Cookies.get('nameOfYourCookie') ) {
+  $('#elementToShow').removeClass('hide');
+  $('#elementToHide').addClass('hide');
+}
