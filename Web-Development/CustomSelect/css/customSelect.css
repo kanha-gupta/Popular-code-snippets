@@ -1,0 +1,70 @@
+:root {
+    --custom-select-hover: red;
+    --custom-select-bg: white;
+    --custom-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    --custom-border-color: black;
+}
+
+.ct-form-theme select{
+    display: none;
+}
+
+.ct-select {
+    display: inline-block; 
+    position: relative; 
+    width: 100%; 
+    cursor: pointer; 
+    padding: 0.75rem;
+    border-radius: 0; 
+    border: 1px solid var(--custom-border-color);
+    font-family: var(--custom-font-family);
+    font-weight: 500; 
+    color: 15px;
+    width: 100%;
+    max-width: 780px;
+    box-sizing: border-box;
+    /* Add a icon for select */
+}
+
+.ct-select-options {
+    display: block; 
+    overflow-y: auto; 
+    position: absolute; 
+    right: 0; 
+    left: 0; 
+    top: 2.8rem; 
+    z-index: 10; 
+    padding-left: 0;
+    padding-right: 0; 
+    margin: 0; 
+    border-top-width: 0; 
+    border-style: solid; 
+    max-height: 13rem; 
+    background-color: var(--custom-select-bg);
+}
+
+.ct-select-options li {
+    padding-left: 0;
+    padding-right: 0; 
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem; 
+    margin: 0; 
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; 
+    color: 15px;
+    padding-left: 12px;
+}
+
+.ct-select-options li:first-child {
+    opacity: 0.6;
+}
+
+.ct-select-options li:hover {
+    background-color: var(--custom-select-bg);
+    color: var(--custom-select-hover);
+}
+
+.ct-select-options li[rel="hide"] {
+    display: none;
+}
