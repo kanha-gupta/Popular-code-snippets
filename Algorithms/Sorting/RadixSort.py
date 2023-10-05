@@ -1,26 +1,42 @@
-def count_sort(arr, place):  # define counting sort
-    n = len(arr)
-    pos = [0] * (10)
-    for i in range(n):
-        pos[(arr[i] // place) % 10] += 1
-    sorted_arr = [0] * (n)
+# Using counting sort to sort the elements in the basis of significant places
+def countingSort(array, place):
+    size = len(array)
+    output = [0] * size
+    count = [0] * 10
+
+    # Calculate count of elements
+    for i in range(0, size):
+        index = array[i] // place
+        count[index % 10] += 1
+
+    # Calculate cumulative count
     for i in range(1, 10):
-        pos[i] += pos[i - 1]
-    for i in range(n - 1, -1, -1):
-        # This is necessary to make count_sort stable
-        sorted_arr[pos[(arr[i] // place) % 10] - 1] = arr[i]
-        pos[(arr[i] // place) % 10] -= 1
-    return sorted_arr
+        count[i] += count[i - 1]
+
+    # Place the elements in sorted order
+    i = size - 1
+    while i >= 0:
+        index = array[i] // place
+        output[count[index % 10] - 1] = array[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    for i in range(0, size):
+        array[i] = output[i]
 
 
-def radix_sort(arr):  # Sort a code in O(n*log(max)) time
-    maximum = max(arr)
+# Main function to implement radix sort
+def radixSort(array):
+    # Get maximum element
+    max_element = max(array)
+
+    # Apply counting sort to sort elements based on place value.
     place = 1
-    while maximum // place > 0:
-        arr = count_sort(arr, place)  # Any Stable merging algorithm like counting sort
+    while max_element // place > 0:
+        countingSort(array, place)
         place *= 10
-    print(arr)
 
 
-data = [121, 432, 564, 23, 1, 45, 788]
-radix_sort(data)
+data = [712, 92, 19, 372, 2834, 7, 19233, 475]
+radixSort(data)
+print(data)
