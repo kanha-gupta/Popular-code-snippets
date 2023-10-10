@@ -1,0 +1,177 @@
+// implement stack using array
+
+#include<iostream>
+using namespace std;
+
+class Stack
+{
+	int a[10];
+	int size;
+	int top;
+	public:
+		Stack()
+		{
+			top=-1;
+		}
+		Stack(int n, int tp=-1)
+		{
+			size=n;
+			top=tp;
+		}
+		void push(int x);
+		int pop();
+		int isempty();
+		int isfull();
+		void display();
+};
+
+int Stack::isempty()
+{
+	if(top==-1)
+		return 1;
+	else
+		return 0;
+}
+
+int Stack::isfull()
+{
+	if(top==size-1)
+		return 1;
+	else
+		return 0;
+}
+
+void Stack::push(int x)
+{
+	if(isfull())
+	{
+		cout<<"Stack is full"<<endl;
+		exit(1);
+	}
+	else
+	{
+		top=top+1;
+		a[top]=x;
+	}
+}
+
+int Stack::pop()
+{
+	int x;
+	if(isempty())
+	{
+		cout<<"Stack is empty"<<endl;
+		exit(1);
+	}
+	else
+	{
+		x=a[top];
+		top=top-1;
+	}
+	return x;
+}
+
+void Stack::display()
+{
+	cout<<"Stack is:"<<endl;
+	for(int i=top; i>=0; i--)
+	{
+		cout<<a[i]<<" "<<endl;
+	}
+}
+
+int main()
+{
+	int n;
+	cout<<"Enter The Size Of Array: "<<endl;
+	cin>>n;
+	Stack  s1(n);
+	char ch ='y';
+	do
+	{
+		cout<<"1. DISPLAY the Stack"<<endl;
+		cout<<"2. PUSH An Element In Stack"<<endl;
+		cout<<"3. POP An Element From Stack"<<endl;
+		cout<<"4. ISEMPTY To Check Stack Is Empty Or Not"<<endl;
+		cout<<"5. ISFULL To Check Stack Is Full Or Not"<<endl;
+		int choice;
+		cout<<"Enter Your Choice: "<<endl;
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:
+				{
+					cout<<choice<<" chosen, Display Stack"<<endl;
+					s1.display();
+					break;
+				}
+			case 2:
+				{
+					cout<<" "<<choice<<" chosen, Push An Element In Stack"<<endl;
+					int res = s1.isfull();
+					if(res==1)
+					{
+						cout<<"Stack Is Full "<<endl;
+						break;
+					}
+					else
+					{
+						int ele;
+					    cout<<"Enter An Element To Be Pushed In Stack: "<<endl;
+					    cin>>ele;
+					    s1.push(ele);
+					}
+					cout<<"Stack After Pushing element : "<<endl;
+					s1.display();
+					break;
+				}
+			case 3:
+			{
+				cout<<choice<<" chosen, Pop An Element From Stack"<<endl;
+				int x = s1.pop();
+				cout<<x;
+				cout<<"Stack After Popping element : "<<endl;
+				s1.display();
+				break;
+			}
+			case 4:
+		    {
+		    	cout<<choice<<" chosen, To Check Stack Is Empty Or Not"<<endl;
+			    int res = s1.isempty();
+			    if (res==1)
+			    {
+			    	cout<<"Stack Is Empty "<<endl;
+				}
+				else
+				{
+					cout<<"Stack Is Not Empty"<<endl;
+				}
+				break;
+			}
+			case 5:
+			{
+			   	cout<<choice<<" chosen, To Check Stack Is Full Or Not"<<endl;
+			    int res = s1.isfull();
+			    if (res==1)
+			    {
+			    	cout<<"Stack Is Full "<<endl;
+				}
+				else
+				{
+					cout<<"Stack Is Not Full"<<endl;
+				}
+				break;
+			}
+			default:
+			{
+				cout<<"Invalid Choice Given"<<endl;
+				break;
+			}
+			}
+			cout<<"Do You Want To Continue? (Y/N): "<<endl;
+			cin>>ch;	
+    }while (ch=='y'||ch=='Y'); 
+		
+	
+	return 0;
+}

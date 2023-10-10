@@ -1,0 +1,138 @@
+// prefix/postfix expression using stack
+
+#include<iostream>
+#include<iomanip>
+#include<stack>
+#include<cmath>
+#include<cstdlib>
+#include<string>
+#include<cstring>
+
+using namespace std;
+
+int prefix(string str)
+{
+	int num;
+	int n1,n2;
+	stack <int> s;
+	for(int i=str.length()-1;i>=0;i--)
+	{
+		if(str[i]>='0' && str[i]<='9')
+		{
+			num=(str[i]-'0');
+			s.push(num);
+		}
+		else if(isspace(str[i]))
+		{
+			num=(str[--i]-'0');
+			num+=((str[--i]-'0')*10);
+			s.push(num);
+			i--;
+			
+			
+		}
+		else
+		{
+			n1=s.top();
+			s.pop();
+			n2=s.top();
+			s.pop();
+			switch(str[i])
+			{
+				case '+': s.push(n1+n2);
+				break;
+				case '-':s.push(n1-n2);
+				break;
+				case '*':s.push(n1*n2);
+				break;
+				case '/':s.push(n1/2);
+				break;
+				case '^':s.push(pow(n1,n2));
+				break;
+			
+			}
+			
+			
+		}
+	}
+	return s.top();
+}
+int postfix(string str)
+{
+	int num;
+	int n1,n2;
+	stack <int> st;
+	for(int i=0;i<str.length();i++)
+	{
+		if(str[i]>='0' && str[i]<='9')
+		{
+			num=(str[i]-'0');
+			st.push(num);
+			
+		}
+		else if(isspace(str[i]))
+		{
+			num=((str[++i]-'0'))*10;
+			num+=((str[++i])-'0');
+			st.push(num);
+			++i;
+		}
+		else
+		{
+			n2=st.top();
+			st.pop();
+			n1=st.top();
+			st.pop();
+			switch(str[i])
+			{
+				case '+': st.push(n1+n2);
+				break;
+				case '-':st.push(n1-n2);
+				break;
+				case '*':st.push(n1*n2);
+				break;
+				case '/':st.push(n1/2);
+				break;
+				case '^':st.push(pow(n1,n2));
+				break;
+			
+			}
+			
+			
+			
+		}
+	}
+	return st.top();
+	
+}
+int main()
+{
+	string str;
+	int option;
+	cout<<"Choose appropriate evaluation criteria:"<<endl;
+	cout<<"1.prefix"<<endl;
+	cout<<"2.postfix"<<endl;
+	cin>>option;
+	switch(option)
+	{
+		case 1: 
+		{
+			cout<<"Enter a prefix expression. If a number is two-digit add whitespace before and after the number in expression."<<endl;
+			cin>>str;
+			cout<<"Evaluated answer:"<<(prefix(str))<<endl;
+		}
+		break;
+		case 2: 
+		{
+			cout<<"Enter a postfix expression. If a number is two-digit add whitespace before and after the number in expression."<<endl;
+			cin>>str;
+			cout<<"Evaluated answer:"<<(postfix(str))<<endl;
+		}
+		break;
+		default:cout<<"Invalid option"<<endl;
+		break;
+		
+		
+	}
+	return 0;
+}
